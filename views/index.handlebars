@@ -2,7 +2,7 @@
     <div class="container lhs">
 
         <div class="row">
-            <div class="col-lg-5">
+            <div class="col-lg-6">
                 <div class="panel panel-primary">
                     <div class="panel-heading">Delicious Burgers</div>
                     <div class="panel-body">
@@ -11,13 +11,13 @@
                             {{#unless devoured}}
                                 <div class="well well-lg">
                                     <form class="form-inline" action="/{{this.id}}?_method=PUT" method="POST">
-                                        <div class="form-group row">
+                                        <div class="form-group">
                                             <input type="hidden" name="sleepy" value="true">
-                                            <label class="text-left" for="burger">{{burger_name}}</label>
-                                            <button type="submit" class="btn btn-primary text-right">Devour it!!</button>
+                                            <label class="text" for="burger">{{burger_name}}</label>
+                                            <button type="submit" class="btn btn-primary">Devour it!!</button>
                                         </div>
                                     </form>
-                                 </div>
+                                </div>
                             {{/unless}}
 
                         {{/each}}
@@ -26,10 +26,20 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-offset-2 col-lg-3">
+            <div class="col-lg-offset-1 col-lg-4">
                 <div class="panel panel-info">
                     <div class="panel-heading">Checkout</div>
-                    <div class="panel-body">Panel Content</div>
+                    <div class="panel-body">
+                        {{#each burgers}}
+                            {{#if devoured}}
+                                <p class="text-justify"> {{id}}. {{burger_name}}</p>
+
+                                <hr>
+                            {{/if}}
+
+                        {{/each}}
+
+                    </div>
                 </div>
             </div>
         </div>

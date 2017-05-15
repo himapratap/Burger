@@ -33,5 +33,26 @@ router.post("/", function(req, res) {
 
 
 
+router.put("/:id", function(req, res) {
+
+    console.log("Devouring it :", req.params.id);
+    var condition = "id = " + req.params.id;
+    burger.update({
+        devoured: req.params.id
+    }, condition, function() {
+        res.redirect("/");
+    })
+
+
+    // burger.create(["burger_name", "devoured"], [req.body.burger, false],
+    //     function() {
+    //         res.redirect("/")
+    //     }
+    //
+    // );
+});
+
+
+
 // Export routes for server.js to use.
 module.exports = router;
